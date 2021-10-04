@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content%}
+<h1>{{leader}}</h1>
+<ul>
+<a href= {% url 'Home' %}>Home</a>
+{% for tech, x in Groups.items %}
+{% if tech == leader%}
+<p>{{ x.description }}</p>
+{% for member in x.members %}
+<li><b>{{ member }}<b></li>
+{% endfor %}
+{% endif%}
+</ul>
+{% endfor %}{% endblock content %}
+
